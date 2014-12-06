@@ -1,7 +1,6 @@
 -module(afile_client).
 -export([list_dir/1, get_file/2, put_file/2]).
 
-
 list_dir(ServerPid) ->
 	ServerPid ! {self(), list},
 	receive 
