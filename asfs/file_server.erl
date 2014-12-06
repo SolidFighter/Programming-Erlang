@@ -4,6 +4,11 @@
 start(Dir) ->
 	spawn(file_server, loop, [Dir]).
 
-loop() ->
+loop(Dir) ->
 	receive 
-		
+	{Client, list} ->
+		Client ! {self(), file:list_dir(Dir)};
+	{Client, {get, FileName}} ->
+		FullFileName = filename:join([Dir, FileName]),
+		Client ! {self(), file:consult(FullFileName)}
+	end.
