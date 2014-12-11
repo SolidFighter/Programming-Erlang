@@ -1,4 +1,4 @@
--module(geometry).
+-module(exercise_1).
 -export([perimeter/1]).
 
 perimeter({circle, Radius}) ->
