@@ -2,12 +2,7 @@
 -export([even/1, odd/1]).
 
 even(X) ->
-	case X rem 2 of
-	0 ->
-		true;
-	1 ->
-		false
-	end.
+	X rem 2 =:= 0.	
 
 odd(X) ->
 	not even(X).
