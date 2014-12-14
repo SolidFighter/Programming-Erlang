@@ -20,3 +20,4 @@ test() ->
 	[6, 8, 10] = filter(fun(X) -> X rem 2 =:= 0 end, [6, 7, 8, 9, 10]),
 	test_ok.
 
+
