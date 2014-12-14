@@ -3,7 +3,7 @@
 -compile(export_all).
 
 map_search_pred(Map, Pred) when erlang:is_map(Map) ->
-	List = maps:to_list(Map),
+  List = maps:to_list(Map),
 	list_search_pred(List, Pred).
 
 list_search_pred([{Key, Value} | T], Pred) ->
