@@ -6,13 +6,13 @@ start(Dir) ->
 
 loop(Dir) ->
 	receive 
-	{Client, list} ->
-		Client ! {self(), file:list_dir(Dir)};
-	{Client, {get, FileName}} ->
-		FullFileName = filename:join([Dir, FileName]),
-		Client ! {self(), file:read_file(FullFileName)};
-	{Client, {put, {ok, Content}}} ->
-		io:format("~p~n", [Content]),
-		Client ! ok
+		{Client, list} ->
+			Client ! {self(), file:list_dir(Dir)};
+		{Client, {get, FileName}} ->
+			FullFileName = filename:join([Dir, FileName]),
+			Client ! {self(), file:read_file(FullFileName)};
+		{Client, {put, {ok, Content}}} ->
+			io:format("~p~n", [Content]),
+			Client ! ok
 	end,
 	loop(Dir).

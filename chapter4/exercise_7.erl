@@ -9,10 +9,10 @@ split(L) ->
 	split_iter(L, [], []).
 split_iter([H | T], Odd, Even) ->
 	case exercise_5:even(H) of	
-	true ->
-		split_iter(T, Odd, [H | Even]);
-	false ->
-		split_iter(T, [H | Odd], Even)
+		true ->
+			split_iter(T, Odd, [H | Even]);
+		false ->
+			split_iter(T, [H | Odd], Even)
 	end;
 split_iter([], Odd, Even) ->
 	{lists:reverse(Even), lists:reverse(Odd)}.

@@ -7,10 +7,10 @@ filter(F, L) ->
 
 filter_iter(F, [H | T], NewList) ->
 	case F(H) of
-	true ->
-		filter_iter(F, T, [H | NewList]);
-	false ->
-		filter_iter(F, T, NewList)
+		true ->
+			filter_iter(F, T, [H | NewList]);
+		false ->
+			filter_iter(F, T, NewList)
 	end;
 filter_iter(_F, [], NewList) ->
 	lists:reverse(NewList).
