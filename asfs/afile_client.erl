@@ -22,7 +22,7 @@ put_file(ServerPid, FileName) ->
 	receive
 		ok ->
 			ok
-	after 5000 ->
-		io:format("put file timeout.~n")
+		after 5000 ->
+			io:format("put file timeout.~n")
 	end.
 
