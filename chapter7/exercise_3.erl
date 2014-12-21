@@ -15,7 +15,7 @@ test() ->
   {} = packet_to_term(exercise_2:term_to_packet({})),
   <<>> = packet_to_term(exercise_2:term_to_packet(<<>>)),
   #{} = packet_to_term(exercise_2:term_to_packet(#{})),
-  test_ok.
+  io:format("exercise_3 test_ok.~n").
 
 
 

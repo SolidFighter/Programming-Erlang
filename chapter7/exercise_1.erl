@@ -10,4 +10,4 @@ test() ->
   <<>> = reverse_byte(<<>>),
   <<1>> = reverse_byte(<<1>>),
   <<3, 2, 1>> = reverse_byte(<<1, 2, 3>>),
-  test_ok.
+  io:format("exercise_1 test_ok.~n").
