@@ -50,3 +50,4 @@ clean:
 	rm -rf *.beam erl_crash.dump
 	cd dir1; $(MAKE) clean
 	cd dir2; $(MAKE) clean  
+
