@@ -2,7 +2,6 @@
 -export([start/1, monitor_worker/1, do_task/0]).
 -define(MAX_TIME_TO_LIVE, 30).
 
-
 start(NumWorker) ->
   Monitor = create_monitor(), 
   start_workers(Monitor, NumWorker).
@@ -53,7 +52,7 @@ do_task(Seconds) ->
   io:format("I'm running, Pid = ~p.~n", [self()]),
   timer:sleep(2000),
   do_task(Seconds - 2).
-  
+
 get_random_num() ->
   random:seed(erlang:now()),
   random:uniform(?MAX_TIME_TO_LIVE).
