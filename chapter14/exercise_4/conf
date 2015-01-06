@@ -1,0 +1,3 @@
+{port, 6397}.
+{service, file_server, password, "yangmeng", mfa, yafs, start, notUsed}.
+

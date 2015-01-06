@@ -1,0 +1,7 @@
+#client
+{ok, Pid} = lib_chan:connect("localhost", 6397, file_server, "yangmeng", "").
+lib_chan:cast(Pid, {test1, argc}).
+lib_chan:rpc(Pid, {test, argc}).
+
+#server
+lib_chan:start_server("conf").
