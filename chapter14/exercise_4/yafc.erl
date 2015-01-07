@@ -5,7 +5,8 @@ list(Pid) ->
   lib_chan:rpc(Pid, {list}).
 
 get(Pid, FileName) ->
-  lib_chan:rpc(Pid, {get, FileName}).
+  {ok, Content} = lib_chan:rpc(Pid, {get, FileName}),
+  file:write_file("yangmeng", Content). 
 
 connect(Addr, Port, Password) ->
   lib_chan:connect(Addr, Port, file_server, Password, "").
