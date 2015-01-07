@@ -8,10 +8,12 @@ loop(MM) ->
   receive
     {chan, MM, {pwd}} ->
       MM ! {send, yafs:pwd()},
-      %{send, {ok, test}},
       loop(MM);
-    {chan, MM, {test1, argc}} ->
-      io:format("test1.~n"),
+    {chan, MM, {list}} ->
+      MM ! {send, yafs:list(".")},
+      loop(MM);
+    {chan, MM, {get, FileName}} ->
+      MM ! {send, yafs:get(FileName)},
       loop(MM);
     {chan_closed, MM} ->
       io:format("client exit.~n"),
