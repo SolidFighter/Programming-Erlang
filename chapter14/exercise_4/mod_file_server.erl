@@ -6,11 +6,8 @@ start(MM, _Argc, _Args) ->
 
 loop(MM) ->
   receive
-    {chan, MM, {pwd}} ->
-      MM ! {send, yafs:pwd()},
-      loop(MM);
     {chan, MM, {list}} ->
-      MM ! {send, yafs:list(".")},
+      MM ! {send, yafs:list()},
       loop(MM);
     {chan, MM, {get, FileName}} ->
       MM ! {send, yafs:get(FileName)},

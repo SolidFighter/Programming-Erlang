@@ -1,11 +1,11 @@
 -module(yafs).
--export([pwd/0, list/1, get/1]).
+-export([list/0, get/1, start/1]).
 
-pwd() ->
-  file:get_cwd().
+start(ConfFile) ->
+  lib_chan:start_server(ConfFile).
 
-list(Dir) ->
-  file:list_dir(Dir).
+list() ->
+  file:list_dir(".").
 
 get(FileName) ->
   file:read_file(FileName).
