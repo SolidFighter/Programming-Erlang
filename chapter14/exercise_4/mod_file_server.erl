@@ -12,6 +12,9 @@ loop(MM) ->
     {chan, MM, {get, FileName}} ->
       MM ! {send, yafs:get(FileName)},
       loop(MM);
+    {chan, MM, {put, FileName, Content}} ->
+      yafs:put(FileName, Content),
+      loop(MM);
     {chan_closed, MM} ->
       io:format("client exit.~n"),
       loop(MM)
