@@ -16,13 +16,13 @@ listen(Listen) ->
 loop(Socket) ->
   receive
     {tcp, Socket, Bin} ->
-      inet:setopts(Socket, [{active, once}]),
       io:format("Server received binary = ~p~n",[Bin]),
       {Module, Func, Args} = binary_to_term(Bin),  
       io:format("Server (unpacked)  Module=~p, Func=~p, Args=~p.~n",[Module, Func, Args]),
       Reply = erlang:apply(Module, Func, Args),  
       io:format("Server replying = ~p.~n",[Reply]),
       gen_tcp:send(Socket, term_to_binary(Reply)),  
+      inet:setopts(Socket, [{active, once}]),
       loop(Socket);
     {tcp_closed, Socket} ->
       io:format("Server socket closed~n")
