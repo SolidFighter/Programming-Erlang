@@ -24,9 +24,9 @@ query(Table) ->
   do(qlc:q([X || X <- mnesia:table(Table)])).
 
 do(Q) ->
-    F = fun() -> qlc:e(Q) end,
-    {atomic, Val} = mnesia:transaction(F),
-    Val.
+  F = fun() -> qlc:e(Q) end,
+  {atomic, Val} = mnesia:transaction(F),
+  Val.
 
 add_users_item(Name, Password, Email) ->
   Row = #users{name=Name, password=Password, email=Email},
