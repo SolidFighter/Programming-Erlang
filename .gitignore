@@ -1,2 +1,3 @@
 *.beam
 *.jpg
+Mnesia*/
