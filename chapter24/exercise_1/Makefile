@@ -5,10 +5,10 @@
 
 ERL = erl -boot start_clean
 
-MODS=module1 module2 module3
+MODS=adapter_db1 adapter_db1_test  
 
 all: compile
-	${ERL} -pa '/home/joe/.../this/dir' -s module1 start
+	${ERL} -pa '/home/myang/Program/Programming-Erlang/chapter24/exercise_1' -s adapter_db1_test test -s init stop
 
 compile: ${MODS:%=%.beam}
 

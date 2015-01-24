@@ -24,11 +24,4 @@ test() ->
     {ok, val1} = N2:lookup(key1),
     {ok, val2} = N2:lookup(key2),
     error = N2:lookup(nokey),
-    %% test the persistent module
-    P0 = new(persistent),
-    P1 = P0:store(key1, val1),
-    P2 = P1:store(key2, val2),
-    {ok, val1} = P2:lookup(key1),
-    {ok, val2} = P2:lookup(key2),
-    error = P2:lookup(nokey),
     io:format("test passed.~n").
