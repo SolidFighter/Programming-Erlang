@@ -23,5 +23,6 @@ code_change(_OldVsn, State, _Extra) -> {ok, State}.
 
 %%client method 
 is_prime(Number) -> 
-  gen_server:call(?MODULE, {prime_test, Number}).
+  %%gen_server:call(?MODULE, {prime_test, Number}).
+  gen_server:call(prime_test_server, {prime_test, Number}).
 
